@@ -1,0 +1,81 @@
+import java.util.*;
+class Node 
+{
+    int data;
+    Node prev;
+    Node next;
+}
+class CDLL 
+{
+    Node head,tail,temp,newNode;
+    void insertion(int ele)
+    {
+        Node newNode  = new Node();
+        newNode.prev=null;
+        newNode.data=ele;
+        newNode.next=null;
+        if(head==null)
+        {
+            head=tail=newNode;
+        }
+        else 
+        {
+            tail.next=newNode;
+            newNode.prev=tail;
+            tail=newNode;
+            newNode.next=head;
+            head.prev=newNode;
+        }
+    }
+    void display()
+    {
+        temp=head;
+        while(temp.next!=head)
+        {
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+       System.out.print(temp.data);
+    }
+    void insertion_at_starting(int A)
+    {
+        Node newNode = new Node();
+        newNode.prev=null;
+        newNode.data=A;
+        newNode.next=null;
+        newNode.next=head;
+        head.prev=newNode;
+        head=newNode;
+        tail.next=head;
+        head.prev=tail;
+    }
+    void insertion_at_ending(int B)
+    {
+        Node newNode = new Node();
+        newNode.prev=null;
+        newNode.data=B;
+        newNode.next=null;
+        tail.next=newNode;
+        newNode.prev=tail;
+        tail=newNode;
+        tail.next=head;
+        head.prev=tail;
+    }
+    public static void main(String [] args)
+    {
+        CDLL cdl=new CDLL();
+       Scanner sc = new Scanner(System.in);
+       int size=sc.nextInt();
+       for(int i=1; i<=size; i++)
+       {
+           int ele=sc.nextInt();
+           cdl.insertion(ele);
+       }
+       int A=sc.nextInt();
+       cdl.insertion_at_starting(A);
+       int B=sc.nextInt();
+       cdl.insertion_at_ending(B);
+       cdl.display();
+       
+    }
+}
