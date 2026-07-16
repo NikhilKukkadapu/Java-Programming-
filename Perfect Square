@@ -1,0 +1,11 @@
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        int n = 1;
+        while(n * n <= num){
+            int mul = n * n;
+            if(mul == num) return true;
+            n++;
+        }
+        return false;
+    }
+} 
