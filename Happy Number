@@ -1,0 +1,43 @@
+public class Solution {
+
+    public static int nextNum(int n)
+    {
+        int sum = 0;
+
+        // Compute the sum of squares of digits.
+        while (n > 0) {
+            int d = n % 10;
+            sum += d * d;
+            n /= 10;
+        }
+
+        return sum;
+    }
+
+    public static boolean reachesOne(int n)
+    {
+        int slow = n;
+        int fast = n;
+
+        // Detect a cycle using Floyd's cycle-finding
+        // algorithm.
+        do {
+            slow = nextNum(slow);
+            fast = nextNum(nextNum(fast));
+        } while (slow != fast);
+
+        // The sequence reaches 1 iff the detected cycle
+        // contains 1.
+        return slow == 1;
+    }
+
+    public static void main(String[] args)
+    {
+        int n = 2;
+
+        if (reachesOne(n))
+            System.out.println("true");
+        else
+            System.out.println("false");
+    }
+}
