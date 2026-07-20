@@ -1,0 +1,12 @@
+// Write the helloFunction below to print "Hello"
+
+public class Solution {
+    public void helloFunction(){
+        System.out.println("Hello");
+    }
+    // code here
+    public static void main(String [] args){
+        Solution obj = new Solution();
+        obj.helloFunction();
+    }
+}
