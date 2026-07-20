@@ -1,0 +1,9 @@
+class Solution {
+    public static int firstDigit(int n) {
+        // code here
+        for(int i = n ; i >= 10 ; i= i/10){
+            n= n/10;
+        }
+        return n ;
+    }
+}
