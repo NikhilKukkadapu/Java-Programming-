@@ -1,0 +1,10 @@
+class Solution {
+    Long maxTripletProduct(Long arr[], int a) {
+        // Complete the function
+        Arrays.sort(arr);
+        int n = arr.length;
+        Long product1 = arr[0] * arr[1] * arr[n-1];
+        Long product2 = arr[n-1] * arr[n-2] * arr[n-3];
+        return Math.max(product1 , product2);
+    }
+}
