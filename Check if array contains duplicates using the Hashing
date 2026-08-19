@@ -1,0 +1,15 @@
+class Solution {
+    public boolean checkDuplicates(int arr[]) {
+        // Code here
+        HashSet<Integer> set = new HashSet<>();
+        for(int num : arr){
+            if(set.contains(num)){
+                return true;
+            }
+            else{
+                set.add(num);
+            }
+        }
+        return false;
+    }
+}
