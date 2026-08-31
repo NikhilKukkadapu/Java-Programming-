@@ -1,0 +1,12 @@
+class Solution {
+    String to_upper(String str) {
+        // code here
+        char[] c = str.toCharArray();
+        for(int i = 0 ; i < c.length ; i++){
+            if(c[i] >= 97 && c[i] <= 122){
+                c[i] = (char) (c[i] - 32);
+            }
+        }
+        return String.valueOf(c);
+    }
+}
