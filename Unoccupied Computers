@@ -1,0 +1,31 @@
+class Solution {
+    public int solve(int n, String s) {
+        // code here
+        int[] status = new int[26];
+        int occupied = 0;
+        int rejected = 0;
+
+        for (char ch : s.toCharArray()) {
+            int index = ch - 'A';
+
+            if (status[index] == 0) {
+                if (occupied < n) {
+                    occupied++;
+                    status[index] = 1;
+                } else {
+                    rejected++;
+                    status[index] = -1; 
+                }
+            } 
+           
+            else {
+                if (status[index] == 1) {
+                    occupied--; 
+                }
+            }
+        }
+
+        return rejected;
+        
+    }
+}
