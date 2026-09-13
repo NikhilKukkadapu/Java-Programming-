@@ -1,0 +1,21 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        // code here
+        int res = 0 ;
+        int lmin = 0;
+        int lmax = 0;
+        int i = 0;
+        while(i < prices.length - 1){
+            while(i < prices.length - 1 && prices[i] >= prices[i+1]){
+                i++;
+            }
+            lmin = prices[i];
+            while(i < prices.length - 1 && prices[i] <= prices[i+1]){
+                i++;
+            }
+            lmax = prices[i];
+            res += (lmax - lmin);
+        }
+        return res;
+    }
+}
