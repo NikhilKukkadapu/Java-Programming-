@@ -1,0 +1,10 @@
+class Solution {
+    public int reverseExponentiation(int n) {
+        // code here
+        String s = Integer.toString(n);
+        String str = new StringBuilder(s).reverse().toString();
+        int a = Integer.parseInt(str);
+        int pow = (int) Math.pow(n , a);
+        return pow;
+    }
+}
